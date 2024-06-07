@@ -7,7 +7,6 @@ from datetime import datetime
 print("Loaded Packages Successfully")
 # %%
 def load_vintage(path):
-
     # Reading 
     series = pd.read_excel(path, sheet_name="series", engine='openpyxl')
     data = pd.read_excel(path, sheet_name="data_m", 
@@ -18,7 +17,6 @@ def load_vintage(path):
                        index_col="date", parse_dates=True, engine='openpyxl')
     gdp_logdiff = pd.read_excel(path, sheet_name="data_logdiff_q", 
                         index_col="date", parse_dates=True, engine='openpyxl')
-    
     # Subsetting 
     series_q = series.loc[series.freq == "Q"]
     series_m = series.loc[series.freq == "M"]
@@ -26,13 +24,11 @@ def load_vintage(path):
     data_logdiff = data_logdiff.loc[data_logdiff.index >= "2000-01-01"]
     gdp = gdp.loc[gdp.index >= "2000-01-01"]
     gdp_logdiff = gdp_logdiff.loc[gdp_logdiff.index >= "2000-01-01"]
-
     # Period Index
     data.index = data.index.to_period()
     data_logdiff.index = data_logdiff.index.to_period()
     gdp.index = gdp.index.to_period()
     gdp_logdiff.index = gdp_logdiff.index.to_period()
-
     return dict(series = series, series_m = series_m, series_q = series_q,
                 data = data, data_logdiff = data_logdiff, gdp = gdp, gdp_logdiff = gdp_logdiff)
 

@@ -10,12 +10,12 @@ import numpy as np
 
 # %% 
 import pandas as pd
-nowcast = pd.read_csv("https://raw.githubusercontent.com/Stellenbosch-Econometrics/SA-Nowcast/main/nowcast/nowcast.csv")    # index_col="date", parse_dates=True
-gdp_ld = pd.read_csv("https://raw.githubusercontent.com/Stellenbosch-Econometrics/SA-Nowcast/main/nowcast/gdp_logdiff.csv") # index_col="quarter", parse_dates=True
+nowcast = pd.read_csv("./nowcast/nowcast.csv")    # index_col="date", parse_dates=True
+gdp_ld = pd.read_csv("./nowcast/gdp_logdiff.csv") # index_col="quarter", parse_dates=True
 gdp_ld.index = pd.PeriodIndex(gdp_ld.quarter, freq="Q")
 gdp_ld = gdp_ld.loc[gdp_ld.index >= pd.PeriodIndex(nowcast.quarter, freq="Q").min()]
-news = pd.read_csv("https://raw.githubusercontent.com/Stellenbosch-Econometrics/SA-Nowcast/main/nowcast/news.csv")
-series = pd.read_csv("https://raw.githubusercontent.com/Stellenbosch-Econometrics/SA-Nowcast/main/nowcast/series.csv")
+news = pd.read_csv("./nowcast/news.csv")
+series = pd.read_csv("./nowcast/series.csv")
 news = news.merge(series, 
                   left_on = "updated variable", 
                   right_on = "series", how = "left")
@@ -175,11 +175,7 @@ app.layout = dbc.Container([
             html.Br(),
             html.H5("About the SA Nowcast"),
             html.P(["The South Africa Nowcast is a project that aims to provide a timely and accurate estimate of the current state of the South African economy. It is updated on a weekly basis and released every Friday."]),
-            html.P(["The nowcast draws its data from the South Africa Macroeconomic Database (SAMADB) a free analytical macroeconomic database. SAMADB offers over 10 000 time series for South Africa collected from the Quarterly Bulletin, ",
-                    html.A("EconData", href='https://www.econdata.co.za'), ", and STATSSA - with weekly updates (every Thursday). It allows efficient global queries through API packages for ",
-                    html.A("R", href = "https://CRAN.R-project.org/package=samadb"), ", ",
-                    html.A("Python", href = "https://pypi.org/project/samadb/"), ", and ",
-                    html.A("Julia", href = "https://juliahub.com/ui/Search?q=SAMaDB&type=packages"), ", and provides concise and harmonized information about time series attributes and data availability/coverage. By harmonizing time series data and making it broadly accessible in a database, we hope to facilitate macroeconomic research in SA."]),
+            html.P(["The nowcast draws its data from ", html.A("EconData", href='https://www.econdata.co.za'), ". EconData is a platform that enables automation of analytical workflows that depend on public domain or third-party data. It is also a leading-edge forecast management system – enabling data and model automation, within a best practice data and model governance framework. EconData supports data-sharing across databases and within institutions, codifies modelling process flows and provides user-level access control. EconData makes it easy to securely manage and share model scenarios and forecast vintages."]),
             html.P(["The nowcast is based on a mixed-frequency dynamic factor model following Banbura & Modugno (2014) and Bok et al. (2018) (see ", 
                     html.A("New York Fed Nowcasting Model", href='https://www.newyorkfed.org/research/policy/nowcast'), ") which is estimated using 54 monthly and 3 quarterly series. The model uses a Kalman filter, which allows for the inclusion of new data as it becomes available. All monthly/quarterly series are seasonally adjusted (using X13) and transformed to monthly/quarterly growth rates (in percentage terms) via log-differencing. Model-based news is computed as the difference between a new data release and its model-based forecast from the previous period (i.e. news = actual minus predicted growth rate of updated series). The impact of this news on the nowcast is given by a model-based weight following Banbura & Modugno (2014), such that nowcast revision = weight x news."]),        
              html.P(["The source code and data is publically available on ",
