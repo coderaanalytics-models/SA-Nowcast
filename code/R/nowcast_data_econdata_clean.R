@@ -7,7 +7,7 @@ if(!requireNamespace("fastverse", quietly = TRUE)) install.packages("fastverse")
 if(!requireNamespace("econdatar", quietly = TRUE)) {
   if(!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
   library("remotes")
-  install_github("coderaanalytics/econdatar", ref = "3.0.2")
+  install_github("coderaanalytics/econdatar", ref = "3.1.0")
 }
 library(fastverse)
 fastverse_extend(econdatar, seasonal, writexl, install = TRUE) # seastests -> many dependencies, also tsbox, xts, tseries
