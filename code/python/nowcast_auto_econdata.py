@@ -33,6 +33,7 @@ def load_vintage(path):
                 data = data, data_logdiff = data_logdiff, gdp = gdp, gdp_logdiff = gdp_logdiff)
 
 # %%
+os.chdir(os.environ["APP_DIR"])
 vintages = os.listdir("vintages")
 # %%
 vintage_dates = {x: datetime.strptime(x[22:32], "%d_%m_%Y") for x in vintages}

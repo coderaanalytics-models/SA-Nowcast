@@ -2,10 +2,14 @@ FROM python:3.7
 
 WORKDIR /usr/src/app
 
-COPY ./app .
-COPY ./nowcast ./nowcast
+COPY SA-Nowcast/app/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY SA-Nowcast/app .
+
+RUN mkdir vintages
+RUN mkdir nowcast
 
 EXPOSE 8050
 

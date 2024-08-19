@@ -2,6 +2,8 @@
 # Nowcasting Data EconData Clean
 #######################################
 
+setwd(Sys.getenv("APP_DIR"))
+
 options(repos = c(CRAN = "https://cran.mirror.ac.za"))
 if(!requireNamespace("fastverse", quietly = TRUE)) install.packages("fastverse")
 if(!requireNamespace("econdatar", quietly = TRUE)) {

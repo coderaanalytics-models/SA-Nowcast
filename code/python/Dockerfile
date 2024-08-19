@@ -5,8 +5,11 @@ WORKDIR /usr/src/app
 RUN python -m pip install --upgrade pip
 RUN pip install pandas statsmodels openpyxl
 
-COPY ./code .
-COPY ./vintages .
-COPY ./nowcast .
+RUN mkdir -p /app/vintages
+RUN mkdir -p /app/nowcast
 
-CMD [ "python", "./code/python/nowcast_auto_econdata.py" ]
+COPY SA-Nowcast/code/python /app
+COPY SA-Nowcast/vintages /app/vintages
+COPY SA-Nowcast/nowcast /app/nowcast
+
+CMD [ "python", "/app/nowcast_auto_econdata.py" ]
