@@ -17,10 +17,10 @@ PPI001,PPI001,Producer Price Index (PPI),Final manufactured goods,M,,0.0,Real,Pr
 PPI027,PPI027,Producer Price Index (PPI),Coal and petroleum products,M,,0.0,Real,Prices
 PPI028,PPI028,Producer Price Index (PPI),Petrol,M,,0.0,Real,Prices
 PPI041,PPI041,Producer Price Index (PPI),Motor vehicles,M,,0.0,Real,Prices
-MIG001_A_N0_TA,MIG001_A_N0_TA,Tourism and Migration,Grand Total,M,,1.0,Real,Tourism
-MIG001_A_A0_TA,MIG001_A_A0_TA,Tourism and Migration,Grand Total,M,,1.0,Real,Tourism
-MIG011_N_A0_TX,MIG011_N_A0_TX,Tourism and Migration,Overnight (tourists),M,,1.0,Real,Tourism
-MIG011_N_N0_TX,MIG011_N_N0_TX,Tourism and Migration,Overnight (tourists),M,,1.0,Real,Tourism
+MIG001_A_N0_TA,MIG001_A_N0_TA,International Tourism,Grand Total,M,,1.0,Real,Tourism
+MIG001_A_A0_TA,MIG001_A_A0_TA,International Tourism,Grand Total,M,,1.0,Real,Tourism
+MIG011_N_A0_TX,MIG011_N_A0_TX,International Tourism,Overnight (tourists),M,,1.0,Real,Tourism
+MIG011_N_N0_TX,MIG011_N_N0_TX,International Tourism,Overnight (tourists),M,,1.0,Real,Tourism
 TOU036_S,TOU036_S,Tourist Accommodation,Total income - Total industry,M,6.0,1.0,Real,Tourism
 TOU006_S,TOU006_S,Tourist Accommodation,Stay units nights sold - Total industry,M,,1.0,Real,Tourism
 TOU011_S,TOU011_S,Tourist Accommodation,Occupancy rate - Total industry,M,,1.0,Real,Tourism
