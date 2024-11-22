@@ -46,6 +46,7 @@ def removekey(d, key):
     r = dict(d)
     del r[key]
     return r
+# %%
 previous_vintage = max(removekey(vintage_dates, latest_vintage), key = vintage_dates.get)
 # %% 
 # Determine first vintage for this quarter: used for standardization
